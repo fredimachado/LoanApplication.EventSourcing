@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AdditionalPackageTags>hosting eventstore</AdditionalPackageTags>
+    <Description>EventStore support for .NET Aspire.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting" Version="9.0.0" />
+    <PackageReference Include="AspNetCore.HealthChecks.EventStore.gRPC" Version="8.0.1" />
+  </ItemGroup>
+
+</Project>

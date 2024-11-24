@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AdditionalPackageTags>EventStore client</AdditionalPackageTags>
+    <Description>An EventStore client that integrates with Aspire, including health checks, logging, and telemetry.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspNetCore.HealthChecks.EventStore.gRPC" Version="8.0.1" />
+    <PackageReference Include="EventStore.Client.Extensions.OpenTelemetry" Version="23.3.7" />
+    <PackageReference Include="EventStore.Client.Grpc.Streams" Version="23.3.7" />
+    <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.9.0" />
+  </ItemGroup>
+
+</Project>

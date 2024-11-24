@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Sdk Name="Aspire.AppHost.Sdk" Version="9.0.0" />
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsAspireHost>true</IsAspireHost>
+    <UserSecretsId>e55317ce-21cd-4fca-8ee5-099904098925</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CommunityToolkit.Aspire.Hosting.EventStore\CommunityToolkit.Aspire.Hosting.EventStore.csproj" IsAspireProjectResource="false" />
+    <ProjectReference Include="..\LoanApplication.EventSourcing.AutomatedApplicants\LoanApplication.EventSourcing.AutomatedApplicants.csproj" />
+    <ProjectReference Include="..\LoanApplication.EventSourcing.CreditCheck\LoanApplication.EventSourcing.CreditCheck.csproj" />
+  </ItemGroup>
+
+</Project>
