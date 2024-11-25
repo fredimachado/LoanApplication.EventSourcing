@@ -63,7 +63,7 @@ public class AutomatedLoanRequests(EventStoreClient eventStoreClient, ILogger<Au
             _logger.LogInformation("Appending event {EventId} to stream. {@LoanRequested}", eventToAppend.Id, eventToAppend);
 
             await _eventStoreClient.AppendToStreamAsync(
-                $"loan-request-{eventToAppend.Id:N}",
+                $"loanRequest-{eventToAppend.Id:N}",
                 StreamRevision.None,
                 [eventToAppend.Serialize()],
                 cancellationToken: stoppingToken);

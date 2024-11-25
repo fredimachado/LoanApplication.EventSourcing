@@ -71,17 +71,17 @@ public class CreditCheckService(
         await CheckCreditScore(subscription, resolvedEvent, @event, cancellationToken);
     }
 
-    private async Task CheckCreditScore(PersistentSubscription subscription, ResolvedEvent resolvedEvent, LoanRequested? @event, CancellationToken cancellationToken)
+    private async Task CheckCreditScore(PersistentSubscription subscription, ResolvedEvent resolvedEvent, LoanRequested @event, CancellationToken cancellationToken)
     {
         try
         {
-            var randomCreditScore = new Random().Next(1, 10); // Credit score between 1 and 9
+            var randomCreditScore = Random.Shared.Next(1, 10); // Credit score between 1 and 9
             var creditChecked = new CreditChecked(@event!.Id, randomCreditScore, @event.Customer.NationalId, DateTimeOffset.UtcNow);
 
             _logger.LogInformation("Credit checked for '{EventId}' with score '{CreditScore}'.", creditChecked.Id, creditChecked.Score);
 
             await _eventStoreClient.AppendToStreamAsync(
-                $"loan-request-{@event.Id:N}",
+                $"loanRequest-{@event.Id:N}",
                 StreamRevision.FromStreamPosition(resolvedEvent.Event.EventNumber),
                 [creditChecked.Serialize()],
                 cancellationToken: cancellationToken);
