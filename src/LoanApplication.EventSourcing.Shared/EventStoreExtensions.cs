@@ -39,7 +39,7 @@ public static class EventStoreExtensions
         return new EventData(
             Uuid.NewUuid(),
             @event.GetType().Name,
-            data: Encoding.UTF8.GetBytes(JsonSerializer.Serialize(@event)),
+            data: Encoding.UTF8.GetBytes(JsonSerializer.Serialize(@event, @event.GetType())),
             metadata: Encoding.UTF8.GetBytes(JsonSerializer.Serialize(new Dictionary<string, string>
                 {
                     { "EventClrTypeName", @event.GetType().AssemblyQualifiedName! }

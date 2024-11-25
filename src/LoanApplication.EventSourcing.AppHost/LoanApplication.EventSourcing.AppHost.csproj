@@ -19,6 +19,7 @@
     <ProjectReference Include="..\CommunityToolkit.Aspire.Hosting.EventStore\CommunityToolkit.Aspire.Hosting.EventStore.csproj" IsAspireProjectResource="false" />
     <ProjectReference Include="..\LoanApplication.EventSourcing.AutomatedApplicants\LoanApplication.EventSourcing.AutomatedApplicants.csproj" />
     <ProjectReference Include="..\LoanApplication.EventSourcing.CreditCheck\LoanApplication.EventSourcing.CreditCheck.csproj" />
+    <ProjectReference Include="..\LoanApplication.EventSourcing.DecisionEngine\LoanApplication.EventSourcing.DecisionEngine.csproj" />
   </ItemGroup>
 
 </Project>
