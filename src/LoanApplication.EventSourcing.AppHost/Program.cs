@@ -15,4 +15,8 @@ builder.AddProject<Projects.LoanApplication_EventSourcing_DecisionEngine>("decis
     .WithReference(eventstore)
     .WaitFor(eventstore);
 
+builder.AddProject<Projects.LoanApplication_EventSourcing_Underwriting_WebApp>("underwriting-webapp")
+    .WithReference(eventstore)
+    .WaitFor(eventstore);
+
 builder.Build().Run();

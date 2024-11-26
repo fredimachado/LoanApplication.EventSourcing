@@ -20,6 +20,7 @@
     <ProjectReference Include="..\LoanApplication.EventSourcing.AutomatedApplicants\LoanApplication.EventSourcing.AutomatedApplicants.csproj" />
     <ProjectReference Include="..\LoanApplication.EventSourcing.CreditCheck\LoanApplication.EventSourcing.CreditCheck.csproj" />
     <ProjectReference Include="..\LoanApplication.EventSourcing.DecisionEngine\LoanApplication.EventSourcing.DecisionEngine.csproj" />
+    <ProjectReference Include="..\LoanApplication.EventSourcing.Underwriting.WebApp\LoanApplication.EventSourcing.Underwriting.WebApp.csproj" />
   </ItemGroup>
 
 </Project>

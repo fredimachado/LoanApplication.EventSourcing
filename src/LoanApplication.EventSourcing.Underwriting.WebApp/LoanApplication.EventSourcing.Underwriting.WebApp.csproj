@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EventStore.Client.Grpc.PersistentSubscriptions" Version="23.3.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CommunityToolkit.Aspire.EventStore\CommunityToolkit.Aspire.EventStore.csproj" />
+    <ProjectReference Include="..\LoanApplication.EventSourcing.ServiceDefaults\LoanApplication.EventSourcing.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\LoanApplication.EventSourcing.Shared\LoanApplication.EventSourcing.Shared.csproj" />
+  </ItemGroup>
+
+</Project>
