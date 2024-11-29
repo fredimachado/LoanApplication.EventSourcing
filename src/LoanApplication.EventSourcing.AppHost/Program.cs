@@ -1,7 +1,8 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
 var eventstore = builder.AddEventStore("eventstore", 32113)
-    .WithLifetime(ContainerLifetime.Persistent);
+    .WithLifetime(ContainerLifetime.Persistent)
+    .WithEnvironment("EVENTSTORE_ENABLE_ATOM_PUB_OVER_HTTP", "true"); // https://github.com/EventStore/EventStore/issues/2640
 
 builder.AddProject<Projects.LoanApplication_EventSourcing_AutomatedApplicants>("automated-applicants")
     .WithReference(eventstore)
