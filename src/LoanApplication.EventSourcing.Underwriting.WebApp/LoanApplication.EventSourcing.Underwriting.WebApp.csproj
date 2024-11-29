@@ -7,11 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Aspire.EventStore" Version="9.0.1-beta.90" />
     <PackageReference Include="EventStore.Client.Grpc.PersistentSubscriptions" Version="23.3.7" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CommunityToolkit.Aspire.EventStore\CommunityToolkit.Aspire.EventStore.csproj" />
     <ProjectReference Include="..\LoanApplication.EventSourcing.ServiceDefaults\LoanApplication.EventSourcing.ServiceDefaults.csproj" />
     <ProjectReference Include="..\LoanApplication.EventSourcing.Shared\LoanApplication.EventSourcing.Shared.csproj" />
   </ItemGroup>
