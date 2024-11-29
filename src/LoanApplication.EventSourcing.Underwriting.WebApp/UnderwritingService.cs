@@ -40,7 +40,7 @@ public class UnderwritingService(
         }
         catch (Exception exception)
         {
-            _logger.LogError(exception, "Failed to list subscriptions for '{StreamName}' in group '{GroupName}'.", StreamName, GroupName);
+            _logger.LogWarning(exception, "Failed to list subscriptions for '{StreamName}' in group '{GroupName}'.", StreamName, GroupName);
         }
 
         if (subscriptions is null || !subscriptions.Any())
