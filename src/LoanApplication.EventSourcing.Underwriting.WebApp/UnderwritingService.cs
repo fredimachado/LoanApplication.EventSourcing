@@ -21,7 +21,7 @@ public class UnderwritingService(
     private const string StreamName = "$et-ManualApprovalRequired";
     private const string GroupName = "underwriting";
 
-    private static JsonSerializerOptions _serializerOptions = new()
+    private static readonly JsonSerializerOptions _serializerOptions = new()
     {
         PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
         Converters =
