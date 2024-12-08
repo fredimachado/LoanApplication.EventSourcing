@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CommunityToolkit.Aspire.EventStore" Version="9.0.1-beta.90" />
+    <PackageReference Include="CommunityToolkit.Aspire.EventStore" Version="9.0.1-beta.102" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.1" />
   </ItemGroup>
 
