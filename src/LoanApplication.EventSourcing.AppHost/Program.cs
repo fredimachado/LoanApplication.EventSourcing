@@ -1,6 +1,6 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
-var eventstore = builder.AddEventStore("eventstore", 32113)
+var eventstore = builder.AddKurrentDB("eventstore", 32113)
     .WithLifetime(ContainerLifetime.Persistent)
     .WithEnvironment("EVENTSTORE_ENABLE_ATOM_PUB_OVER_HTTP", "true"); // https://github.com/EventStore/EventStore/issues/2640
 
