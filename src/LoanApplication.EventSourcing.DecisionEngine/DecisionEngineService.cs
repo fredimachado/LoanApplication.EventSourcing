@@ -1,16 +1,17 @@
 using EventStore.Client;
+using KurrentDB.Client;
 using LoanApplication.EventSourcing.Shared;
 using LoanApplication.EventSourcing.Shared.Events;
 
 namespace LoanApplication.EventSourcing.DecisionEngine;
 
 public class DecisionEngineService(
-    EventStoreClient eventStoreClient,
-    EventStorePersistentSubscriptionsClient subscriptionsClient,
+    KurrentDBClient kurrentDBClient,
+    KurrentDBPersistentSubscriptionsClient subscriptionsClient,
     ILogger<DecisionEngineService> logger) : BackgroundService
 {
-    private readonly EventStoreClient _eventStoreClient = eventStoreClient;
-    private readonly EventStorePersistentSubscriptionsClient _subscriptionsClient = subscriptionsClient;
+    private readonly KurrentDBClient _kurrentDBClient = kurrentDBClient;
+    private readonly KurrentDBPersistentSubscriptionsClient _subscriptionsClient = subscriptionsClient;
     private readonly ILogger<DecisionEngineService> _logger = logger;
 
     private const string StreamName = "$et-CreditChecked";
@@ -90,9 +91,9 @@ public class DecisionEngineService(
                 decisionEvent = new LoanDenied(@event.Id, DecisionType.Automatic, "DECISION_ENGINE", $"Score of {@event.Score} is too low.", DateTimeOffset.UtcNow);
             }
 
-            await _eventStoreClient.AppendToStreamAsync(
+            await _kurrentDBClient.AppendToStreamAsync(
                 $"loanRequest-{@event.Id:N}",
-                StreamRevision.FromStreamPosition(resolvedEvent.Event.EventNumber),
+                StreamState.StreamRevision(resolvedEvent.Event.EventNumber),
                 [decisionEvent.Serialize()],
                 cancellationToken: cancellationToken);
 

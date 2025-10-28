@@ -1,14 +1,14 @@
-using EventStore.Client;
+using KurrentDB.Client;
 using LoanApplication.EventSourcing.Underwriting.WebApp;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
 
-builder.AddEventStoreClient("eventstore");
+builder.AddKurrentDBClient("eventstore");
 
 builder.Services.AddSingleton(
-    new EventStorePersistentSubscriptionsClient(EventStoreClientSettings.Create(builder.Configuration.GetConnectionString("eventstore")!)));
+    new KurrentDBPersistentSubscriptionsClient(KurrentDBClientSettings.Create(builder.Configuration.GetConnectionString("eventstore")!)));
 builder.Services.AddHostedService<UnderwritingService>();
 builder.Services.AddSingleton<LoanRequestRepository>();
 

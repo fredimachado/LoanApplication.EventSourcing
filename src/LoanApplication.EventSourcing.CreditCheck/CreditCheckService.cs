@@ -1,16 +1,17 @@
 using EventStore.Client;
+using KurrentDB.Client;
 using LoanApplication.EventSourcing.Shared;
 using LoanApplication.EventSourcing.Shared.Events;
 
 namespace LoanApplication.EventSourcing.CreditCheck;
 
 public class CreditCheckService(
-    EventStoreClient eventStoreClient,
-    EventStorePersistentSubscriptionsClient subscriptionsClient,
+    KurrentDBClient kurrentDBClient,
+    KurrentDBPersistentSubscriptionsClient subscriptionsClient,
     ILogger<CreditCheckService> logger) : BackgroundService
 {
-    private readonly EventStoreClient _eventStoreClient = eventStoreClient;
-    private readonly EventStorePersistentSubscriptionsClient _subscriptionsClient = subscriptionsClient;
+    private readonly KurrentDBClient _kurrentDBClient = kurrentDBClient;
+    private readonly KurrentDBPersistentSubscriptionsClient _subscriptionsClient = subscriptionsClient;
     private readonly ILogger<CreditCheckService> _logger = logger;
 
     private const string StreamName = "$et-LoanRequested";
@@ -80,9 +81,9 @@ public class CreditCheckService(
 
             _logger.LogInformation("Credit checked for '{EventId}' with score '{CreditScore}'.", creditChecked.Id, creditChecked.Score);
 
-            await _eventStoreClient.AppendToStreamAsync(
+            await _kurrentDBClient.AppendToStreamAsync(
                 $"loanRequest-{@event.Id:N}",
-                StreamRevision.FromStreamPosition(resolvedEvent.Event.EventNumber),
+                StreamState.StreamRevision(resolvedEvent.Event.EventNumber),
                 [creditChecked.Serialize()],
                 cancellationToken: cancellationToken);
 

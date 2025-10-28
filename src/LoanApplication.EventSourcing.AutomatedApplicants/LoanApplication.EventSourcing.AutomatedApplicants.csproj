@@ -6,7 +6,7 @@
     <UserSecretsId>dotnet-LoanApplication.EventSourcing.AutomatedApplicants-b7ac0681-522a-4056-8391-cf4f4b247f4d</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="CommunityToolkit.Aspire.EventStore" Version="9.3.0" />
+    <PackageReference Include="CommunityToolkit.Aspire.KurrentDB" Version="9.8.1-beta.424" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.10" />
   </ItemGroup>
   <ItemGroup>

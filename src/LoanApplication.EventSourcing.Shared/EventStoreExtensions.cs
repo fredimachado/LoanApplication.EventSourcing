@@ -1,7 +1,7 @@
-﻿using EventStore.Client;
-using System.Text.Json;
+﻿using System.Text.Json;
 using System.Text;
 using LoanApplication.EventSourcing.Shared.Events;
+using KurrentDB.Client;
 
 namespace LoanApplication.EventSourcing.Shared;
 

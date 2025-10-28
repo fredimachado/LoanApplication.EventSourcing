@@ -6,8 +6,7 @@
     <UserSecretsId>dotnet-LoanApplication.EventSourcing.DecisionEngine-a7e46403-08b7-446b-b22c-5d689497f50c</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="CommunityToolkit.Aspire.EventStore" Version="9.3.0" />
-    <PackageReference Include="EventStore.Client.Grpc.PersistentSubscriptions" Version="23.3.8" />
+    <PackageReference Include="CommunityToolkit.Aspire.KurrentDB" Version="9.8.1-beta.424" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.10" />
   </ItemGroup>
   <ItemGroup>

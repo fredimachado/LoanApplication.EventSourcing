@@ -1,4 +1,4 @@
-﻿using EventStore.Client;
+﻿using KurrentDB.Client;
 using LoanApplication.EventSourcing.Shared;
 using LoanApplication.EventSourcing.Shared.Events;
 using Microsoft.AspNetCore.SignalR;
@@ -8,12 +8,12 @@ using System.Text.Json.Serialization;
 namespace LoanApplication.EventSourcing.Underwriting.WebApp;
 
 public class UnderwritingService(
-    EventStorePersistentSubscriptionsClient subscriptionsClient,
+    KurrentDBPersistentSubscriptionsClient subscriptionsClient,
     LoanRequestRepository loanRequestRepository,
     IHubContext<UnderwritingHub> hubContext,
     ILogger<UnderwritingService> logger) : BackgroundService
 {
-    private readonly EventStorePersistentSubscriptionsClient _subscriptionsClient = subscriptionsClient;
+    private readonly KurrentDBPersistentSubscriptionsClient _subscriptionsClient = subscriptionsClient;
     private readonly LoanRequestRepository _loanRequestRepository = loanRequestRepository;
     private readonly IHubContext<UnderwritingHub> _hubContext = hubContext;
     private readonly ILogger<UnderwritingService> _logger = logger;

@@ -1,12 +1,14 @@
-using EventStore.Client;
+using KurrentDB.Client;
 using LoanApplication.EventSourcing.Shared;
 using LoanApplication.EventSourcing.Shared.Events;
 
 namespace LoanApplication.EventSourcing.AutomatedApplicants;
 
-public class AutomatedLoanRequests(EventStoreClient eventStoreClient, ILogger<AutomatedLoanRequests> logger) : BackgroundService
+public class AutomatedLoanRequests(KurrentDBClient kurrentDBClient, IServiceScopeFactory serviceScopeFactory, IHostApplicationLifetime applicationLifetime, ILogger<AutomatedLoanRequests> logger) : BackgroundService
 {
-    private readonly EventStoreClient _eventStoreClient = eventStoreClient;
+    private readonly KurrentDBClient _kurrentDBClient = kurrentDBClient;
+    private readonly IServiceScopeFactory _serviceScopeFactory = serviceScopeFactory;
+    private readonly IHostApplicationLifetime _applicationLifetime = applicationLifetime;
     private readonly ILogger<AutomatedLoanRequests> _logger = logger;
 
     private readonly List<LoanRequest> _loanRequests =
@@ -62,9 +64,9 @@ public class AutomatedLoanRequests(EventStoreClient eventStoreClient, ILogger<Au
 
             _logger.LogInformation("Appending event {EventId} to stream. {@LoanRequested}", eventToAppend.Id, eventToAppend);
 
-            await _eventStoreClient.AppendToStreamAsync(
+            await _kurrentDBClient.AppendToStreamAsync(
                 $"loanRequest-{eventToAppend.Id:N}",
-                StreamRevision.None,
+                StreamState.Any,
                 [eventToAppend.Serialize()],
                 cancellationToken: stoppingToken);
 
@@ -74,5 +76,7 @@ public class AutomatedLoanRequests(EventStoreClient eventStoreClient, ILogger<Au
         }
 
         _logger.LogInformation("All loan requests have been appended to the stream.");
+
+        _applicationLifetime.StopApplication();
     }
 }

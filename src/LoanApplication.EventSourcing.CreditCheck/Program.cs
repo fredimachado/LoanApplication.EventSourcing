@@ -1,13 +1,13 @@
-using EventStore.Client;
+using KurrentDB.Client;
 using LoanApplication.EventSourcing.CreditCheck;
 
 var builder = Host.CreateApplicationBuilder(args);
 
 builder.AddServiceDefaults();
 
-builder.AddEventStoreClient("eventstore");
+builder.AddKurrentDBClient("eventstore");
 builder.Services.AddSingleton(
-    new EventStorePersistentSubscriptionsClient(EventStoreClientSettings.Create(builder.Configuration.GetConnectionString("eventstore")!)));
+    new KurrentDBPersistentSubscriptionsClient(KurrentDBClientSettings.Create(builder.Configuration.GetConnectionString("eventstore")!)));
 builder.Services.AddHostedService<CreditCheckService>();
 
 var host = builder.Build();
