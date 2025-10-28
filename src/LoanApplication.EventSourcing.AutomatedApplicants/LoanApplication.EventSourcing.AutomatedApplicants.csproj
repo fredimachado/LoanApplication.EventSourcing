@@ -1,17 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk.Worker">
-
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>dotnet-LoanApplication.EventSourcing.AutomatedApplicants-b7ac0681-522a-4056-8391-cf4f4b247f4d</UserSecretsId>
   </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="CommunityToolkit.Aspire.EventStore" Version="9.0.1-beta.102" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.1" />
+    <PackageReference Include="CommunityToolkit.Aspire.EventStore" Version="9.3.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.10" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\LoanApplication.EventSourcing.ServiceDefaults\LoanApplication.EventSourcing.ServiceDefaults.csproj" />
     <ProjectReference Include="..\LoanApplication.EventSourcing.Shared\LoanApplication.EventSourcing.Shared.csproj" />
