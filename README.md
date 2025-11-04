@@ -1,8 +1,8 @@
 # Loans Application - Event Sourcing Sample
 
-This project demonstrates how to implement a simple loans application using event sourcing and EventStore DB,
-inspired by the [Loans Appication - Python Sample Code](https://github.com/EventStore/samples/tree/main/LoanApplication/Python) provided
-by EventStore.
+This project demonstrates how to implement a simple loans application using event sourcing and KurrentDB,
+inspired by the [Loans Appication - Python Sample Code](https://github.com/kurrent-io/samples/tree/main/LoanApplication/Python) provided
+by Kurrent.
 
 This sample is composed by four services:
 
