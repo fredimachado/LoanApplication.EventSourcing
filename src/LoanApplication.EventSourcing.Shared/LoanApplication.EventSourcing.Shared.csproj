@@ -5,6 +5,6 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="CommunityToolkit.Aspire.KurrentDB" Version="9.8.1-beta.424" />
+    <PackageReference Include="CommunityToolkit.Aspire.KurrentDB" Version="9.9.0" />
   </ItemGroup>
 </Project>

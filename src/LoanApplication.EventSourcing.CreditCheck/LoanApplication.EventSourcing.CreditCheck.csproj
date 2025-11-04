@@ -6,7 +6,6 @@
     <UserSecretsId>dotnet-LoanApplication.EventSourcing.CreditCheck-a375836b-c552-4a39-a2ff-fc1cd6d40a25</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="CommunityToolkit.Aspire.KurrentDB" Version="9.8.1-beta.424" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.10" />
   </ItemGroup>
   <ItemGroup>

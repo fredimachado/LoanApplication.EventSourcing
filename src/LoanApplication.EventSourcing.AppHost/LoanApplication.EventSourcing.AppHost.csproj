@@ -9,7 +9,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Aspire.Hosting.AppHost" Version="9.5.2" />
-    <PackageReference Include="CommunityToolkit.Aspire.Hosting.KurrentDB" Version="9.8.1-beta.424" />
+    <PackageReference Include="CommunityToolkit.Aspire.Hosting.KurrentDB" Version="9.9.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LoanApplication.EventSourcing.AutomatedApplicants\LoanApplication.EventSourcing.AutomatedApplicants.csproj" />
